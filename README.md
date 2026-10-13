@@ -23,7 +23,9 @@ Lab 1 – DevOps Course: My First CI/CD Pipeline
 
 
 ## 4.2 SƠ ĐỒ QUY TRÌNH DEVOPS WORKFLOW: TRẢI NGHIỆM ĐẦU TIÊN CỦA SINH VIÊN
-[Uploadin<mxfile host="app.diagrams.net">
+[Vẽ sơ đồ workflow .drawio](https://github.com/user-attachments/files/33396995/V.s.d.workflow.drawio)
+
+<mxfile host="app.diagrams.net">
   <diagram name="Trang-1" id="rS6wnoyNf9HwqfumCGjX">
     <mxGraphModel dx="715" dy="396" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -71,8 +73,6 @@ Lab 1 – DevOps Course: My First CI/CD Pipeline
     </mxGraphModel>
   </diagram>
 </mxfile>
-g Vẽ sơ đồ workflow .drawio…]()
-
 
 
 
