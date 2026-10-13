@@ -20,17 +20,20 @@ Lab 1 – DevOps Course: My First CI/CD Pipeline
 
 ---
 
+---
+
 ## 4.2 SƠ ĐỒ QUY TRÌNH DEVOPS WORKFLOW: TRẢI NGHIỆM ĐẦU TIÊN CỦA SINH VIÊN
 
 ```mermaid
 graph LR
-    A["1. PLAN<br/>(Bắt đầu làm Lab 1: Hơi lo, không biết CI/CD là gì...)"] --> B["2. CODE<br/>(Viết HTML & Lần đầu loay hoay với lệnh Git)"]
-    B --> C["3. PUSH CODE<br/>(Gõ git add, commit, push... Push lên GitHub lần đầu!)"]
-    C --> D{"4. HỒI HỘP<br/>(GitHub Actions đang chạy...)<br/>(Lần 1 có lỗi không?)"}
-    D -- Lỗi ❌ --> B["(Sửa code... Push lại lần 2, 3...)"]
-    D -- Thành công ✅ --> E["5. BUILD & TEST<br/>(Build & Validate HTML thành công!)"]
-    E --> F["6. DEPLOY<br/>(Thấy web portfolio online trên GitHub Pages, vui quá!)"]
-    F --> G["7. MONITOR<br/>(Mở tab Actions xem log, dấu tích xanh ✅ tuyệt vời!)"]
+    A["1. PLAN<br/>Lên kế hoạch làm Lab 1"] --> B["2. CODE<br/>Viết HTML & dùng Git"]
+    B --> C["3. PUSH CODE<br/>Gõ git push lên GitHub"]
+    C --> D{"4. KIỂM TRA<br/>GitHub Actions running..."}
+    D -- "Lỗi ❌" --> B
+    D -- "Thành công ✅" --> E["5. BUILD & TEST<br/>Validate thành công"]
+    E --> F["6. DEPLOY<br/>Triển khai lên GitHub Pages"]
+    F --> G["7. MONITOR<br/>Xem log xanh ở tab Actions"]
+    G -. "Tự động lặp" .-> A
     G -. Tự động lặp .-> A
 
 ---
