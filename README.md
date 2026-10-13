@@ -17,3 +17,31 @@ Lab 1 – DevOps Course: My First CI/CD Pipeline
 | **Có bị sai sót không?** | Có — sai sót, dễ nhầm file, thiếu bước | Không — pipeline nhất quán 100% |
 | **Rollback nếu lỗi?** | Tìm file cũ rồi upload đè lại bằng tay | `git revert` + push → tự động rollback |
 | **Làm sao biết deploy thành công?** | Tự mở trình duyệt F5 kiểm tra xem có hiển thị lên không | GitHub Actions gửi notification ✅/❌ |
+
+## 4.2 SƠ ĐỒ QUY TRÌNH DEVOPS WORKFLOW: TRẢI NGHIỆM ĐẦU TIÊN CỦA SINH VIÊN
+
+```mermaid
+graph LR
+    A["1. PLAN<br/>(Bắt đầu làm Lab 1: Hơi lo, không biết CI/CD là gì...)"] --> B["2. CODE<br/>(Viết HTML & Lần đầu loay hoay với lệnh Git)"]
+    B --> C["3. PUSH CODE<br/>(Gõ git add, commit, push... Push lên GitHub lần đầu!)"]
+    C --> D{"4. HỒI HỘP<br/>(GitHub Actions đang chạy...)<br/>(Lần 1 có lỗi không?)"}
+    D -- Lỗi ❌ --> B["(Sửa code... Push lại lần 2, 3...)"]
+    D -- Thành công ✅ --> E["5. BUILD & TEST<br/>(Build & Validate HTML thành công!)"]
+    E --> F["6. DEPLOY<br/>(Thấy web portfolio online trên GitHub Pages, vui quá!)"]
+    F --> G["7. MONITOR<br/>(Mở tab Actions xem log, dấu tích xanh ✅ tuyệt vời!)"]
+    G -. Tự động lặp .-> A
+
+---
+
+## **4.3 TRẢ LỜI CÂU HỎI THU HOẠCH**
+
+1. **DevOps workflow tự động hóa những bước nào mà cách thủ công phải làm bằng tay?**
+   - Tự động hóa toàn bộ quy trình kiểm tra mã nguồn (Test/Validate HTML), đóng gói (Build) và triển khai (Deploy) trang web lên GitHub Pages ngay lập tức mỗi khi gõ lệnh `git push`.
+
+2. **Nếu bạn deploy sai (website bị lỗi), làm sao để quay lại phiên bản cũ?**
+   - Sử dụng lệnh `git revert <commit-id>` (hoặc `git reset --hard <commit-id>`) rồi `git push` lại. Pipeline CI/CD của GitHub Actions sẽ tự động kích hoạt và deploy bản chạy ổn định cũ lên lại trang web (quy trình Rollback tự động).
+
+3. **GitHub Actions pipeline đã giúp bạn tiết kiệm bao nhiêu thời gian so với cách thủ công?**
+   - **Cách thủ công:** Phải tải file, kết nối server qua FTP/SSH, upload file đè lên server rồi cấu hình và mở web test thủ công (mất khoảng 15 – 30 phút).
+   - **Cách DevOps:** Chỉ cần gõ lệnh `git push` mất khoảng 10 giây, máy tự động làm hết mọi bước còn lại.
+   - $\rightarrow$ **Kết quả:** Tiết kiệm hơn 90% thời gian làm việc.
