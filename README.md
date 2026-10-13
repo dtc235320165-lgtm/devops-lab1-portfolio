@@ -24,17 +24,6 @@ Lab 1 – DevOps Course: My First CI/CD Pipeline
 
 ## 4.2 SƠ ĐỒ QUY TRÌNH DEVOPS WORKFLOW: TRẢI NGHIỆM ĐẦU TIÊN CỦA SINH VIÊN
 
-```mermaid
-graph LR
-    A["1. PLAN<br/>Lên kế hoạch làm Lab 1"] --> B["2. CODE<br/>Viết HTML & dùng Git"]
-    B --> C["3. PUSH CODE<br/>Gõ git push lên GitHub"]
-    C --> D{"4. KIỂM TRA<br/>GitHub Actions running..."}
-    D -- "Lỗi ❌" --> B
-    D -- "Thành công ✅" --> E["5. BUILD & TEST<br/>Validate thành công"]
-    E --> F["6. DEPLOY<br/>Triển khai lên GitHub Pages"]
-    F --> G["7. MONITOR<br/>Xem log xanh ở tab Actions"]
-    G -. "Tự động lặp" .-> A
-    G -. Tự động lặp .-> A
 
 ---
 
