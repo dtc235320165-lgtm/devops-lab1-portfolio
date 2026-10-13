@@ -18,6 +18,8 @@ Lab 1 – DevOps Course: My First CI/CD Pipeline
 | **Rollback nếu lỗi?** | Tìm file cũ rồi upload đè lại bằng tay | `git revert` + push → tự động rollback |
 | **Làm sao biết deploy thành công?** | Tự mở trình duyệt F5 kiểm tra xem có hiển thị lên không | GitHub Actions gửi notification ✅/❌ |
 
+---
+
 ## 4.2 SƠ ĐỒ QUY TRÌNH DEVOPS WORKFLOW: TRẢI NGHIỆM ĐẦU TIÊN CỦA SINH VIÊN
 
 ```mermaid
