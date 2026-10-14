@@ -14,17 +14,53 @@
             justify-content: center;
             align-items: center;
             color: #333;
+            padding: 20px;
         }
         .container {
             background: white;
             border-radius: 16px;
             padding: 48px;
             max-width: 600px;
+            width: 100%;
             box-shadow: 0 20px 60px rgba(0,0,0,0.3);
             text-align: center;
         }
         h1 { color: #667eea; margin-bottom: 8px; font-size: 32px; }
         h2 { color: #764ba2; margin-bottom: 24px; font-size: 18px; font-weight: normal; }
+        
+        /* --- CSS CHO LOGO TRÒN VÀ CHỮ XIN CHÀO --- */
+        .greeting-wrapper {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 12px;
+        }
+        .circle-logo {
+            width: 88px;
+            height: 88px;
+            border-radius: 50%; /* Bo tròn 100% thành hình tròn */
+            object-fit: cover;
+            border: 2px solid #ba1e5c;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .circle-logo:hover {
+            transform: scale(1.08);
+            box-shadow: 0 4px 10px rgba(90, 117, 230, 0.35);
+        }
+        .greeting-title {
+            font-size: 22px;
+            font-weight: bold;
+            color: #2b2b2b;
+        }
+        /* ----------------------------------------- */
+
+        .sub-greeting {
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #2b2b2b;
+        }
         .info { background: #f8f9fa; border-radius: 8px; padding: 20px; margin: 16px 0; text-align: left; }
         .info p { margin: 8px 0; }
         .badge {
@@ -36,21 +72,31 @@
             font-size: 14px;
             margin: 4px;
         }
-        .footer { margin-top: 24px; font-size: 13px; color: #999; }
+        .footer { margin-top: 24px; font-size: 13px; color: #999; line-height: 1.6; }
         .status { color: #38a169; font-weight: bold; }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1> Hello, DevOps!</h1>
+        <h1>Hello, DevOps!</h1>
         <h2>Lab 1 — Trải nghiệm CI/CD Pipeline</h2>
-        <h3>Xin chào, DevOps!</h3>
-        <h4>Lab 1 — Website đã được cập nhật tự động! </h4>
+
+        <!-- Khối Logo tròn anh.jpg nằm cạnh Xin chào, DevOps! -->
+        <div class="greeting-wrapper">
+            <label for="logo-upload" title="Nhấn vào để thay đổi ảnh avatar">
+                <img id="avatar-logo" src="anh.jpg" alt="Logo" class="circle-logo">
+            </label>
+            <input type="file" id="logo-upload" accept="image/*" style="display: none;">
+            <span class="greeting-title">Xin chào, DevOps!</span>
+        </div>
+
+        <p class="sub-greeting">Lab 1 — Website đã được cập nhật tự động!</p>
+
         <div class="info">
-            <p> <strong>Bài học:</strong> DevOps Lab 1 — Tổng quan</p>
-            <p> <strong>Deploy bởi:</strong> GitHub Actions CI/CD</p>
-            <p> <strong>Ngày deploy:</strong> <span id="date"></span></p>
-            <p> <strong>Pipeline status:</strong> <span class="status"> Automated</span></p>
+            <p><strong>Bài học:</strong> DevOps Lab 1 — Tổng quan</p>
+            <p><strong>Deploy bởi:</strong> GitHub Actions CI/CD</p>
+            <p><strong>Ngày deploy:</strong> <span id="date"></span></p>
+            <p><strong>Pipeline status:</strong> <span class="status">Automated</span></p>
         </div>
 
         <div>
@@ -64,12 +110,26 @@
 
         <div class="footer">
             <p>Deployed automatically via GitHub Actions Pipeline</p>
-            <p> Push code → CI Build → Auto Deploy → Live! </p>
+            <p>Push code → CI Build → Auto Deploy → Live!</p>
         </div>
     </div>
 
     <script>
         document.getElementById('date').textContent = new Date().toLocaleDateString('vi-VN');
+
+        // Tính năng click vào ảnh trên web để đổi ảnh khác
+        const logoUpload = document.getElementById('logo-upload');
+        const avatarLogo = document.getElementById('avatar-logo');
+        logoUpload.addEventListener('change', function(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    avatarLogo.src = e.target.result;
+                };
+                reader.readAsDataURL(file);
+            }
+        });
     </script>
 </body>
 </html>
